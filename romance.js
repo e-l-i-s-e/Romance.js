@@ -106,7 +106,7 @@ let articles = ['a', 'an', 'the'];
 
 let conjunctions = ['and', 'but', 'if', 'or', 'that', 'which'];
 
-let emphasis = ['very', 'so', 'such', 'its'];
+let emphasis = ['very', 'so', 'such'];
 
 let prepositions = ['about', 'below', 'excepting', 'off', 'toward', 'above', 'beneath', 'for', 
 'on', 'under', 'across', 'beside', 'besides', 'from', 'onto', 'underneath', 
