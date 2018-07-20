@@ -1,24 +1,9 @@
 # sample-code
-From Code Wars: 
-Task
- 	In this simple Kata your task is to create a function that turns a string into a Mexican Wave. You will be passed a string and you must return that string in an array where an uppercase letter is a person standing up.
-Rules
- 	1.  The input string will always be lower case but maybe empty.
-  2.  If the character in the string is whitespace then pass over it as if it was an empty seat.
 
-Tests
-Exampleresult = ["Hello", "hEllo", "heLlo", "helLo", "hellO"];
-Test.assertDeepEquals(wave("hello"),result, "Should return: '"+result+"'");
+Romance.js is my final project for Fullstack Academy's Bootcamp Prep program. I built a poem generator with a Markov chain that takes a word corpus and constructs a poem with a given number of lines and words per line. 
 
-result = ["Codewars", "cOdewars", "coDewars", "codEwars", "codeWars", "codewArs", "codewaRs", "codewarS"];
-Test.assertDeepEquals(wave("codewars"), result, "Should return: '"+result+"'");
+I wanted to include some ES6 and recursion in my solution, which are both are fairly new to me, and I think they work really well here.
 
-result = [];
-Test.assertDeepEquals(wave(""), result, "Should return: '"+result+"'");
+A final note: most Markov chain poetry generators create texts that don't sound human at all. Since we were feeding our generators romantic poetry, I thought I should give my project a little style and polish. So I also added the restriction that none of the lines can end with a preposition, conjunction, or article. 
 
-result = ["Two words", "tWo words", "twO words", "two Words", "two wOrds", "two woRds", "two worDs", "two wordS"];
-Test.assertDeepEquals(wave("two words"), result, "Should return: '"+result+"'");
-
-result = [" Gap ", " gAp ", " gaP "];
-Test.assertDeepEquals(wave(" gap "), result, "Should return: '"+result+"'");
-Good luck and enjoy!
+Good news — I won the award for most human-sounding poem! 
