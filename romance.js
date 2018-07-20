@@ -1,34 +1,3 @@
-let percyShelley = "The fountains mingle with the river \
-And the rivers with the ocean, \
-The winds of heaven mix for ever \
-With a sweet emotion; \
-Nothing in the world is single; \
-All things by a law divine \
-In one spirit meet and mingle. \
-Why not I with thine— \
-See the mountains kiss high heaven \
-And the waves clasp one another; \
-No sister-flower would be forgiven \
-If it disdained its brother; \
-And the sunlight clasps the earth \
-And the moonbeams kiss the sea: \
-What is all this sweet work worth \
-If thou kiss not me? "
-
-let articles = ['a', 'an', 'the'];
-
-let conjunctions = ['and', 'but', 'if', 'or', 'that', 'which'];
-
-let emphasis = ['very', 'so', 'such', 'its'];
-
-let prepositions = ['about', 'below', 'excepting', 'off', 'toward', 'above', 'beneath', 'for', 
-'on', 'under', 'across', 'beside', 'besides', 'from', 'onto', 'underneath', 
-'after', 'between', 'in', 'out', 'until', 'against', 'beyond', 'of', 
-'outside', 'up', 'along', 'but', 'inside', 'over', 'upon', 'among', 'by', 
-'past', 'to', 'around', 'concerning',  'regarding', 'with', 'at', 
-'despite', 'into', 'since', 'within', 'down', 'like', 'through', 'without',
-'before', 'during', 'near', 'throughout', 'behind', 'except'];
-
 let parseText = function (text) {
   let alphabet = 'abcdefghijklmnopqrstuvwxyz';
   let arrOfWords = text.toLowerCase()
@@ -114,5 +83,38 @@ function generatePoem(corpusOfWords, numberOfLines, wordsPerLine){
   }
     return helperFunc(wordPairs, wordsPerLine, numberOfLines);
 }
+
+
+let percyShelley = "The fountains mingle with the river \
+And the rivers with the ocean, \
+The winds of heaven mix for ever \
+With a sweet emotion; \
+Nothing in the world is single; \
+All things by a law divine \
+In one spirit meet and mingle. \
+Why not I with thine— \
+See the mountains kiss high heaven \
+And the waves clasp one another; \
+No sister-flower would be forgiven \
+If it disdained its brother; \
+And the sunlight clasps the earth \
+And the moonbeams kiss the sea: \
+What is all this sweet work worth \
+If thou kiss not me? "
+
+let articles = ['a', 'an', 'the'];
+
+let conjunctions = ['and', 'but', 'if', 'or', 'that', 'which'];
+
+let emphasis = ['very', 'so', 'such', 'its'];
+
+let prepositions = ['about', 'below', 'excepting', 'off', 'toward', 'above', 'beneath', 'for', 
+'on', 'under', 'across', 'beside', 'besides', 'from', 'onto', 'underneath', 
+'after', 'between', 'in', 'out', 'until', 'against', 'beyond', 'of', 
+'outside', 'up', 'along', 'but', 'inside', 'over', 'upon', 'among', 'by', 
+'past', 'to', 'around', 'concerning',  'regarding', 'with', 'at', 
+'despite', 'into', 'since', 'within', 'down', 'like', 'through', 'without',
+'before', 'during', 'near', 'throughout', 'behind', 'except'];
+
 
 console.log(generatePoem(percyShelley, 8, 5))
