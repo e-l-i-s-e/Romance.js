@@ -1,4 +1,4 @@
-# sample-code
+# romance.js project
 
 Romance.js is my final project for Fullstack Academy's Bootcamp Prep program. I built a poem generator with a Markov chain that takes a word corpus and constructs a poem with a given number of lines and words per line. 
 
