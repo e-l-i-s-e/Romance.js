@@ -11,7 +11,6 @@ function parseText(text) { // build array from text block
       arrOfWords.push(word);
       return arrOfWords
     },[])
-  return arrOfWords;
 }
 
 function generateWordPairs(text) {// creates a dictionary of the words with the words that follow it
