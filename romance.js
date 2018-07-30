@@ -1,4 +1,4 @@
-function parseText(text) {
+function parseText(text) { // build array from text block
   const alphabet = 'abcdefghijklmnopqrstuvwxyz';
   return text
     .toLowerCase()
@@ -14,7 +14,7 @@ function parseText(text) {
   return arrOfWords;
 }
 
-function generateWordPairs(text) {
+function generateWordPairs(text) {// creates a dictionary of the words with the words that follow it
   return parseText(text)
     .reduce((dict, word, idx, array) => {
       if(dict[word]){
@@ -25,11 +25,9 @@ function generateWordPairs(text) {
     return dict;
   }, {})
 }
-// let wordPairs = generateWordPairs(text);
 
-function writeLine(dictionary, lengthOfWords){
+function writeLine(dictionary, lengthOfWords){ // recursively create a line of poetry using the keys in the dictionary object 
   const keys = Object.keys(dictionary)
-    .filter(key => key);
   
   function getWord(list){
     return list[Math.floor(Math.random() * (list.length - 1))]
@@ -42,6 +40,7 @@ function writeLine(dictionary, lengthOfWords){
         ? line[line.length - 1] 
         : line[line.length - 1][0];
 
+      // reject lines that end with prepositions, articles, emphasis words, and conjunctions
       if([...prepositions, ...articles, ...emphasis, ...conjunctions].includes(finalWord)){
         line = [];
         length = lengthOfWords; 
@@ -73,7 +72,7 @@ function writeLine(dictionary, lengthOfWords){
   return helperFunc(getWord(keys), dictionary, lengthOfWords);
 }
 
-function generatePoem(corpusOfWords, numberOfLines, wordsPerLine){
+function generatePoem(corpusOfWords, numberOfLines, wordsPerLine){//recursively creates lines and formats the final poem
   const poem = [];
   const wordPairs = generateWordPairs(corpusOfWords);
   function helperFunc (lines){
