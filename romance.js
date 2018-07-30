@@ -116,4 +116,4 @@ let prepositions = ['about', 'below', 'excepting', 'off', 'toward', 'above', 'be
 'before', 'during', 'near', 'throughout', 'behind', 'except'];
 
 
-console.log(generatePoem(percyShelley, 8, 5))
+console.log(generatePoem(percyShelley, 8, 6))
