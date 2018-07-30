@@ -61,7 +61,7 @@ function writeLine(dictionary, lengthOfWords){ // recursively create a line of p
       } else { 
         word = dictionary[word];
       }
-    } else 
+    } else {
       word = getWord(keys);
     } 
      return helperFunc(word, dict, (length - 1))
