@@ -1,9 +1,11 @@
-let parseText = function (text) {
-  let alphabet = 'abcdefghijklmnopqrstuvwxyz';
-  let arrOfWords = text.toLowerCase()
+function parseText(text) {
+  const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+  return text
+    .toLowerCase()
     .split(' ')
     .reduce((arrOfWords, word) => {
-      word = word.split('')
+      word = word
+        .split('')
         .filter(x => alphabet.indexOf(x) > -1)
         .join('');
       arrOfWords.push(word);
@@ -13,75 +15,76 @@ let parseText = function (text) {
 }
 
 function generateWordPairs(text) {
-  let arrayOfWords = parseText(text);
-  return arrayOfWords.reduce((dict, word, idx, array) => {
-    if(dict[word]){
-      dict[word].push(array[idx + 1])
-    } else if(idx === array.length - 1){
-    } else {
-      dict[word] = [];
-      dict[word].push(array[idx + 1])
-    };
+  return parseText(text)
+    .reduce((dict, word, idx, array) => {
+      if(dict[word]){
+        dict[word].push(array[idx + 1])
+      } else if (idx < array.length - 1){
+        dict[word] = [array[idx + 1]];
+      };
     return dict;
   }, {})
 }
 // let wordPairs = generateWordPairs(text);
 
 function writeLine(dictionary, lengthOfWords){
-  let length1 = lengthOfWords;
-  let keys = []
-  for(key in dictionary){
-    keys.push(key)
+  const keys = Object.keys(dictionary)
+    .filter(key => key);
+  
+  function getWord(list){
+    return list[Math.floor(Math.random() * (list.length - 1))]
   }
-  keys = keys.filter(x => x);
-  let word1 = keys[Math.floor(Math.random() * Math.floor(keys.length-1))]; 
+
   let line = [];
   function helperFunc(word, dict, length){
     if(length === 0){
-      let finalWord = typeof line[line.length - 1] === 'string' ? 
-        line[line.length - 1] : 
-        line[line.length - 1][0];
+      let finalWord = typeof line[line.length - 1] === 'string' 
+        ? line[line.length - 1] 
+        : line[line.length - 1][0];
 
-      if(prepositions.indexOf(finalWord) >= 0 || articles.indexOf(finalWord) >= 0 || emphasis.indexOf(finalWord) >= 0 || conjunctions.indexOf(finalWord) >= 0){
+      if([...prepositions, ...articles, ...emphasis, ...conjunctions].includes(finalWord)){
         line = [];
-        length = length1; 
-        word = keys[Math.floor(Math.random() * Math.floor(keys.length-1))]; 
-        } else {
+        length = lengthOfWords; 
+        word = getWord(keys); 
+      } else {
         return `${line.join(' ')},`; 
       } 
     }
+    
     if(word === 'i'){
       line.push(word.toUpperCase());
     } else {
       line.push(word);
     }
 
-    if(dictionary[word] && dictionary[word].length > 1){
-      word = dictionary[word][Math.floor(Math.random() * (dictionary[word].length-1))];
+    if(dictionary[word]){
+      if(dictionary[word].length > 1){
+        word = getWord(dictionary[word]);
+      } else { 
+        word = dictionary[word];
+      }
     } else if(!dictionary[word]){
       word = keys[Math.floor(Math.random() * Math.floor(keys.length-1))] 
     } else { 
-      word = dictionary[word];
+      word = getWord(keys);
     } 
      return helperFunc(word, dict, (length - 1))
     }
-  return helperFunc(word1, dictionary, length1);
+  return helperFunc(getWord(keys), dictionary, lengthOfWords);
 }
 
 function generatePoem(corpusOfWords, numberOfLines, wordsPerLine){
-  let poem = [];
-  let wordPairs = generateWordPairs(corpusOfWords);
-  let helperFunc = function (dict, words, lines){
+  const poem = [];
+  const wordPairs = generateWordPairs(corpusOfWords);
+  function helperFunc (lines){
     if(lines === 0){
-      poem = poem.join(' ');
-      poem = poem[0].toUpperCase() + poem.slice(1);
-      poem = poem.slice(0, poem.length - 2) + '.'
-      return poem;
+      const textBlock = poem.join(' ');
+      return textBlock.slice(0, 1).toUpperCase() + textBlock.slice(1, -2) + '.';
     }  
     poem.push(writeLine(wordPairs, wordsPerLine) + '\n')
-    return helperFunc(dict, words, lines - 1);     
+    return helperFunc(lines - 1);     
   }
-    return helperFunc(wordPairs, wordsPerLine, numberOfLines);
+    return helperFunc(numberOfLines);
 }
 
 
