@@ -6,7 +6,7 @@ function parseText(text) {
     .reduce((arrOfWords, word) => {
       word = word
         .split('')
-        .filter(x => alphabet.indexOf(x) > -1)
+        .filter(char => alphabet.indexOf(char) > -1)
         .join('');
       arrOfWords.push(word);
       return arrOfWords
