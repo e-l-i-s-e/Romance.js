@@ -6,4 +6,6 @@ I wanted to include some ES6 and recursion in my solution, which are both are fa
 
 A final note: most Markov chain poetry generators create texts that don't sound human at all. Since we were feeding our generators romantic poetry, I thought I should give my project a little style and polish so I also added the restriction that none of the lines can end with a preposition, conjunction, or article. 
 
-Good news — I won the award for most human-sounding poem! 
+Good news — I won the award for most human-sounding poem!
+
+TEST: git branching
