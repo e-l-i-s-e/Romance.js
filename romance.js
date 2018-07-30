@@ -61,9 +61,7 @@ function writeLine(dictionary, lengthOfWords){ // recursively create a line of p
       } else { 
         word = dictionary[word];
       }
-    } else if(!dictionary[word]){
-      word = keys[Math.floor(Math.random() * Math.floor(keys.length-1))] 
-    } else { 
+    } else 
       word = getWord(keys);
     } 
      return helperFunc(word, dict, (length - 1))
